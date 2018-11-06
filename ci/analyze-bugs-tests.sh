@@ -42,6 +42,8 @@ if [[ "${TRAVIS_COMMIT_MESSAGE}" == *"[refresh dependencies]"* ]]; then
     gradleBuild="$gradleBuild --refresh-dependencies "
 fi
 
+gradlebuild="$gradleBuild 2> /dev/null"
+
 if [ -z "$gradleBuild" ]; then
     echo "Gradle build will be ignored since no commands are specified to run."
 else
